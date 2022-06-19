@@ -3,7 +3,7 @@
 /* 
 --------------- Bilgilendirme -----------------------
 • Projeye geçmeden önce README.md dosyasını okumanız tavsiye edilmektedir.
-
+• Projeyle alakalı herhangi bir soru ve öneriniz için emircan200123@hotmail.com mail adresi üzerinden bana ulaşabilirsiniz.
 */
 
 #include <stdio.h>
