@@ -3,7 +3,8 @@
 /* 
 --------------- Bilgilendirme -----------------------
 • Projeye geçmeden önce README.md dosyasını okumanız tavsiye edilmektedir.
-• Projeyle alakalı herhangi bir soru ve öneriniz için emircan200123@hotmail.com mail adresi üzerinden bana ulaşabilirsiniz.
+• Projeyle alakalı herhangi bir soru ve öneriniz için "emircan200123@hotmail.com" mail adresi üzerinden, konu başlığına "Github | C-TR/ DFS ile labirent cozumu"
+yazarak bana ulaşabilirsiniz.
 */
 
 #include <stdio.h>
