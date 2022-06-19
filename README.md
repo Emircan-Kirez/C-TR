@@ -1,2 +1,2 @@
 # C-TR
-C dili ile yapmış olduğum projeler
+C dilini kullanarak yaptığım projelerin Türkçe versiyonu
