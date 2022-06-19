@@ -1,2 +1,2 @@
 # C-TR
-C dili yapmış olduğum projeler
+C dili ile yapmış olduğum projeler
