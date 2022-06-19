@@ -13,7 +13,7 @@ yazarak bana ulaşabilirsiniz.
 #include <unistd.h>
 #define MAX 255
 
-/* Kullanilan Matris TEK Boslukludur
+/* Kullanılan Matris TEK Boşlukludur
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |     |     |                             |
 + +-+ + +-+-+ +-+-+-+-+-+-+-+-+-+ +-+-+-+ +
@@ -95,10 +95,10 @@ int main(){
 	LINES *lineHead = NULL;
 	VISITED *visitedHead = NULL;
 	char fileName[20];
-	char **maze; //labirenti sakladýðým matris yapým
+	char **maze; //labirenti sakladıgım matris yapım
 	STACK s;
 	int startingX, startingY, mazeWidth, mazeHeight;
-	initialize(&s); //Stack'i initialize eder. Stack boþ ise top deðerimiz -1'i gösterir
+	initialize(&s); //Stack'i initialize eder. Stack bos ise top degerimiz -1'i gösterir
 
 
 	printf("Labirenti okumak istediginiz dosyayi uzantisiyla beraber yaziniz: ");
@@ -114,14 +114,14 @@ int main(){
 	initializeMaze(lineHead, maze, mazeHeight, mazeWidth, &startingX, &startingY);
 	findMazeExit(&visitedHead, startingX, startingY, &s, maze, mazeHeight, mazeWidth);
 	
-	/* Programý kapatmadan önce silme iþlemleri yapar */
+	/* Programı kapatmadan önce silme islemleri yapar */
 	
-	//Stack'i boþaltýr
+	//Stack'i bosaltır
 	while(!isEmpty(&s)){
 		INDICES *tmp = pop(&s);
 	}
 	
-	//Linkli listelerin head'lerini sýfýrlar
+	//Linkli listelerin head'lerini sıfırlar
 	visitedHead = NULL;
 	lineHead = NULL;
 	
