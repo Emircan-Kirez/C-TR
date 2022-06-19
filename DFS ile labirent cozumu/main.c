@@ -1,5 +1,11 @@
 /* Emircan KIREZ - Ch3rry */
 /* Last Update: 02/06/2022 */
+/* 
+--------------- Bilgilendirme -----------------------
+• Projeye geçmeden önce README.md dosyasını okumanız tavsiye edilmektedir.
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
