@@ -46,18 +46,18 @@ typedef struct lineNode{
 	struct lineNode *next;
 }LINES; 
 
-//x ve y indislerini birlikte tutmak için olusturduðum struct
+//x ve y indislerini birlikte tutmak için olusturdugum struct
 typedef struct indices{
 	int x, y;
 }INDICES;
 
-//Ziyaret ettiðim düðümleri tuttuðum linkli liste 
+//Ziyaret ettigim dügümleri tuttugum linkli liste 
 typedef struct visitedIndices{
 	INDICES* indices;
 	struct visitedIndices *next;
 }VISITED;
 
-//DFS için kullandýðým stack yapýsý - Üstteki linkli listede INDICES* tuttuðum için kolaylýk olsun diye burada da öyle tutuyorum
+//DFS için kullandıgım stack yapısı - Üstteki linkli listede INDICES* tuttugum için kolaylık olsun diye burada da öyle tutuyorum
 typedef struct {
 	INDICES* item[MAX]; //0 .. MAX-1
 	int top;
