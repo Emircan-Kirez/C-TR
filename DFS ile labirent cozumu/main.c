@@ -47,24 +47,24 @@ yazarak bana ulaşabilirsiniz.
 +---+-+-+-+-+---+-+-+-+-+-+-+-+-+-+-+-+-+-+
 */
 
-//Dosyadan okudugum satırları sakladıgım linkli liste
+//Dosyadan okuduğum satırları sakladığım linkli liste
 typedef struct lineNode{
 	char line[100];
 	struct lineNode *next;
 }LINES; 
 
-//x ve y indislerini birlikte tutmak için olusturdugum struct
+//x ve y indislerini birlikte tutmak için oluşturduğum struct
 typedef struct indices{
 	int x, y;
 }INDICES;
 
-//Ziyaret ettigim dügümleri tuttugum linkli liste 
+//Ziyaret ettiğim düğümleri tuttuğum linkli liste 
 typedef struct visitedIndices{
 	INDICES* indices;
 	struct visitedIndices *next;
 }VISITED;
 
-//DFS için kullandıgım stack yapısı - Üstteki linkli listede INDICES* tuttugum için kolaylık olsun diye burada da öyle tutuyorum
+//DFS için kullandıgım stack yapısı - Üstteki linkli listede INDICES* tuttuğum için kolaylık olsun diye burada da öyle tutuyorum
 typedef struct {
 	INDICES* item[MAX]; //0 .. MAX-1
 	int top;
@@ -95,10 +95,10 @@ int main(){
 	LINES *lineHead = NULL;
 	VISITED *visitedHead = NULL;
 	char fileName[20];
-	char **maze; //labirenti sakladıgım matris yapım
+	char **maze; //labirenti sakladığım matris yapım
 	STACK s;
 	int startingX, startingY, mazeWidth, mazeHeight;
-	initialize(&s); //Stack'i initialize eder. Stack bos ise top degerimiz -1'i gösterir
+	initialize(&s); //Stack'i initialize eder. Stack boş ise top değerimiz -1'i gösterir
 
 
 	printf("Labirenti okumak istediginiz dosyayi uzantisiyla beraber yaziniz: ");
@@ -114,9 +114,9 @@ int main(){
 	initializeMaze(lineHead, maze, mazeHeight, mazeWidth, &startingX, &startingY);
 	findMazeExit(&visitedHead, startingX, startingY, &s, maze, mazeHeight, mazeWidth);
 	
-	/* Programı kapatmadan önce silme islemleri yapar */
+	/* Programı kapatmadan önce silme işlemlerini yapar */
 	
-	//Stack'i bosaltır
+	//Stack'i boşaltır
 	while(!isEmpty(&s)){
 		INDICES *tmp = pop(&s);
 	}
@@ -125,26 +125,26 @@ int main(){
 	visitedHead = NULL;
 	lineHead = NULL;
 	
-	//Oluþturulan labirenti deallocate eder
+	//Oluşturulan labirenti deallocate eder
 	deallocateMaze(maze, mazeHeight, mazeWidth);
 	return 0;
 }
 
-/* STACK Fonksiyonlarý */
+/* STACK Fonksiyonları */
 void initialize(STACK *s){
 	s->top = -1;
 }
 
-//stack'i yeteri kadar büyük ayarlayýp dolu olup olmadýðýna bakmadým
+//stack'i yeteri kadar büyük ayarlayıp dolu olup olmadığına bakmadım
 void push(STACK *s, INDICES* indices){ 
-	s->item[++s->top] = indices; //önce arttýr yeni yeri göstersin, ondan sonra ekle 
+	s->item[++s->top] = indices; //önce arttır yeni yeri göstersin, ondan sonra ekle 
 }
 
 int isEmpty(STACK *s){
 	return s->top == -1 ? 1 : 0;
 }
 
-INDICES* pop(STACK *s){ //Boþ olup olmadýðýna bakmadým çünkü DFS'te stack boþ olmadýðý sürece pop yapýyoruz
+INDICES* pop(STACK *s){ //Boþ olup olmadığına bakmadım çünkü DFS'te stack boş olmadığı sürece pop yapıyoruz
 	return s->item[s->top--]; //toptaki deðeri al, sonra bir azalt
 }
 
