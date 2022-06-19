@@ -13,7 +13,7 @@ yazarak benimle iletişime geçebilirsiniz.
 #include <unistd.h>
 #define MAX 255
 
-/* Kullanýlan Matris TEK Boþlukludur
+/* Kullanılan Matris TEK Boşlukludur
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |     |     |                             |
 + +-+ + +-+-+ +-+-+-+-+-+-+-+-+-+ +-+-+-+ +
@@ -47,24 +47,24 @@ yazarak benimle iletişime geçebilirsiniz.
 +---+-+-+-+-+---+-+-+-+-+-+-+-+-+-+-+-+-+-+
 */
 
-//Dosyadan okuduðum satýrlarý sakladýðým linkli liste
+//Dosyadan okuduğum satırları sakladığım linkli liste
 typedef struct lineNode{
 	char line[100];
 	struct lineNode *next;
 }LINES; 
 
-//x ve y indislerini birlikte tutmak için oluþturduðum struct
+//x ve y indislerini birlikte tutmak için oluşturduğum struct
 typedef struct indices{
 	int x, y;
 }INDICES;
 
-//Ziyaret ettiðim düðümleri tuttuðum linkli liste 
+//Ziyaret ettiğim düğümleri tuttuğum linkli liste 
 typedef struct visitedIndices{
 	INDICES* indices;
 	struct visitedIndices *next;
 }VISITED;
 
-//DFS için kullandýðým stack yapýsý - Üstteki linkli listede INDICES* tuttuðum için kolaylýk olsun diye burada da öyle tutuyorum
+//DFS için kullandığım stack yapısı - Üstteki linkli listede INDICES* tuttuğum için kolaylık olsun diye burada da öyle tutuyorum
 typedef struct {
 	INDICES* item[MAX]; //0 .. MAX-1
 	int top;
@@ -95,10 +95,10 @@ int main(){
 	LINES *lineHead = NULL;
 	VISITED *visitedHead = NULL;
 	char fileName[20];
-	char **maze; //labirenti sakladýðým matris yapým
+	char **maze; //labirenti sakladığım matris yapım
 	STACK s;
 	int startingX, startingY, mazeWidth, mazeHeight;
-	initialize(&s); //Stack'i initialize eder. Stack boþ ise top deðerimiz -1'i gösterir
+	initialize(&s); //Stack'i initialize eder. Stack boş ise top değerimiz -1'i gösterir
 
 
 	printf("Labirenti okumak istediginiz dosyayi uzantisiyla beraber yaziniz: ");
@@ -114,45 +114,45 @@ int main(){
 	initializeMaze(lineHead, maze, mazeHeight, mazeWidth, &startingX, &startingY);
 	findMazeExit(&visitedHead, startingX, startingY, &s, maze, mazeHeight, mazeWidth);
 	
-	/* Programý kapatmadan önce silme iþlemleri yapar */
+	/* Programı kapatmadan önce silme işlemlerini yapar */
 	
-	//Stack'i boþaltýr
+	//Stack'i boşaltır
 	while(!isEmpty(&s)){
 		INDICES *tmp = pop(&s);
 	}
 	
-	//Linkli listelerin head'lerini sýfýrlar
+	//Linkli listelerin head'lerini sıfırlar
 	visitedHead = NULL;
 	lineHead = NULL;
 	
-	//Oluþturulan labirenti deallocate eder
+	//Oluşturulan labirenti deallocate eder
 	deallocateMaze(maze, mazeHeight, mazeWidth);
 	return 0;
 }
 
-/* STACK Fonksiyonlarý */
+/* STACK Fonksiyonları */
 void initialize(STACK *s){
 	s->top = -1;
 }
 
-//stack'i yeteri kadar büyük ayarlayýp dolu olup olmadýðýna bakmadým
+//stack'i yeteri kadar büyük ayarlayıp dolu olup olmadığına bakmadım
 void push(STACK *s, INDICES* indices){ 
-	s->item[++s->top] = indices; //önce arttýr yeni yeri göstersin, ondan sonra ekle 
+	s->item[++s->top] = indices; //önce arttır yeni yeri göstersin, ondan sonra ekle 
 }
 
 int isEmpty(STACK *s){
 	return s->top == -1 ? 1 : 0;
 }
 
-INDICES* pop(STACK *s){ //Boþ olup olmadýðýna bakmadým çünkü DFS'te stack boþ olmadýðý sürece pop yapýyoruz
-	return s->item[s->top--]; //toptaki deðeri al, sonra bir azalt
+INDICES* pop(STACK *s){ //Boş olup olmadığına bakmadım çünkü DFS'te stack boş olmadığı sürece pop yapıyoruz
+	return s->item[s->top--]; //toptaki değeri al, sonra bir azalt
 }
 
 INDICES* top(STACK *s){
 	return s->item[s->top];
 }
 
-//Dosyadan satýr satýr okuyup, onlarý LINES linkli listesine kaydeder ve labirentin yüksekliðini bulur.
+//Dosyadan satır satır okuyup, onları LINES linkli listesine kaydeder ve labirentin yüksekliğini bulur.
 int readFromFile(LINES **head, char *fileName, int *mazeHeight){
 	FILE *fPtr;
 	char line[100];
@@ -172,7 +172,7 @@ int readFromFile(LINES **head, char *fileName, int *mazeHeight){
 	return 1;
 }
 
-//Dosyadan satýr satýr okurken elde ettiðimiz line'larý saklamak için node oluþturur
+//Dosyadan satır satır okurken elde ettiğimiz line'ları saklamak için node oluşturur
 LINES *createLineNode(char *line){
 	LINES *newLineNode = (LINES *)malloc(sizeof(LINES));
 	strcpy(newLineNode->line, line);
@@ -180,7 +180,7 @@ LINES *createLineNode(char *line){
 	return newLineNode;
 }
 
-//Satýrlarý içinde tutan bir node oluþturur ve linkli listeye sondan ekler
+//Satırları içinde tutan bir node oluşturur ve linkli listeye sondan ekler
 void addLineNode(LINES **head, char *line){
 	LINES *newLineNode = createLineNode(line);
 	if(*head == NULL){
@@ -194,7 +194,7 @@ void addLineNode(LINES **head, char *line){
 	}
 }
 
-//Labirentin geniþliði bir satýrýn uzunluðuna bakarak belirler
+//Labirentin genişliği bir satırın uzunluğuna bakarak belirler
 int findWidth(char *line){
 	int i = 0;
 	while(i < 100 && line[i] != '\n'){
@@ -203,7 +203,7 @@ int findWidth(char *line){
 	return i;
 }
 
-//Labirentin yüksekliði ve geniþliðine göre bir matris oluþturup onu geri döndürür
+//Labirentin yüksekliği ve genişliğine göre bir matris oluşturup onu geri döndürür
 char **createMaze(int mazeHeight, int mazeWidth){
 	char **maze;
 	int i;
@@ -214,7 +214,7 @@ char **createMaze(int mazeHeight, int mazeWidth){
 	return maze;
 }
 
-//Daha önceden dosyadan okuduðum ve LINES linkli listesinden satýrlarý teker teker alarak matrisi initialize eder. Ayný zamanda baþlangýç noktasýnýn indislerini bulur
+//Daha önceden dosyadan okuduğum ve LINES linkli listesinden satırları teker teker alarak matrisi initialize eder. Aynı zamanda başlangıç noktasının indislerini bulur
 void initializeMaze(LINES *head, char **maze, int mazeHeight, int mazeWidth, int *startingX, int *startingY){
 	int i, j, randomX, randomY;
 	LINES *tmp = head;
@@ -241,22 +241,21 @@ void initializeMaze(LINES *head, char **maze, int mazeHeight, int mazeWidth, int
 	}
 }
 
-//
 void findMazeExit(VISITED **visitedHead, int startingX, int startingY, STACK *s, char **maze, int mazeHeight, int mazeWidth){
-	//sol - aþaðý- sað - yukarý þeklinde kontrol eder. Bu þekilde stackte yukarý - sað - aþaðý - sol yapýsý kurulur
+	//sol - aşağı- sağ - yukarı şeklinde kontrol eder. Bu şekilde stackte yukarı - sağ - aşağı - sol yapısı kurulur
 	int directions[][4] = {{0, 1, 0, -1}, {-1, 0, 1, 0}};  
-	//int directions[][4] = {{-1, 0, 0, 1}, {0, -1, 1, 0}}; //aþaðý - sað - yukarý - sol pdf'teki örnek için
+	//int directions[][4] = {{-1, 0, 0, 1}, {0, -1, 1, 0}}; //aşağı - sağ - yukarı - sol pdf'teki örnek için
 	int i, x, y, counter, score = 0;
 	INDICES *tmp = createIndices(startingX, startingY);
 	INDICES *current;
 	
-	//Baþlangýç noktasýný VISITED linkli listesine koyuyorum ve komþularýný stack'e atýyorum. Ondan sonra DFS uyguluyorum
+	//Başlangıç noktasını VISITED linkli listesine koyuyorum ve komşularını stack'e atıyorum. Ondan sonra DFS uyguluyorum
 	addVisitedNode(visitedHead, createVisitedIndices(tmp));
 	for(i = 0; i < 4; i++){
 		x = startingX + directions[0][i];
 		y = startingY + directions[1][i];
 		
-		if(maze[x][y] == ' ' || maze[x][y] == 'O'){ //boþ yerse ya da elmaysa stack'e ekle
+		if(maze[x][y] == ' ' || maze[x][y] == 'O'){ //boş yerse ya da elmaysa stack'e ekle
 			tmp = createIndices(x, y);
 			addVisitedNode(visitedHead, createVisitedIndices(tmp));
 			push(s, tmp);
@@ -266,7 +265,7 @@ void findMazeExit(VISITED **visitedHead, int startingX, int startingY, STACK *s,
 	printMaze(maze, mazeHeight, mazeWidth, score);
 	while(!isEmpty(s)){
 		tmp = pop(s);
-		if(maze[tmp->x][tmp->y] == 'O'){ //elmayý yerse +10 puan
+		if(maze[tmp->x][tmp->y] == 'O'){ //elmayı yerse +10 puan
 			score += 10;
 		}
 		maze[tmp->x][tmp->y] = '*';
@@ -292,14 +291,14 @@ void findMazeExit(VISITED **visitedHead, int startingX, int startingY, STACK *s,
 		
 
 		if(counter == 0){ 
-		//counter == 0 ise demekki hiç bir yere gidilememiþ. Bu da demek oluyor ki çýkmaz sokak. O yüzden skor'dan 5 çýkarýp, stack'teki son deðer'e kadar olan *'larý kaldýrýyorum.
-		//Bu þekilde gittiðim yoldan geri dönmüþ oluyorum. Bunun için de VISITED linkli listesinden yararlanýyorum
+		//counter == 0 ise demekki hiçbir yere gidilememiş. Bu da demek oluyor ki çıkmaz sokak. O yüzden skor'dan 5 çıkarıp, stack'teki son değer'e kadar olan *'ları kaldırıyorum.
+		//Bu şekilde gittiğim yoldan geri dönmüş oluyorum. Bunun için de VISITED linkli listesinden yararlanıyorum
 			score -= 5;
 			current = top(s);
 			while((*visitedHead)->indices->x != current->x || (*visitedHead)->indices->y != current->y){
 				maze[(*visitedHead)->indices->x][(*visitedHead)->indices->y] = ' '; //geri geliyorum
 				printMaze(maze, mazeHeight, mazeWidth, score);
-				deleteVisitedNode(visitedHead); //Baþtan eklediðim linkli listeden silerek ilgili noktaya gelmeye çalýþýyorum
+				deleteVisitedNode(visitedHead); //Baştan eklediğim linkli listeden silerek ilgili noktaya gelmeye çalışıyorum
 			}
 		}
 	}
@@ -318,7 +317,7 @@ void printMaze(char **maze, int mazeHeight, int mazeWidth, int score){
 	usleep(500000); 
 }
 
-//x ve y deðerlerine göre INDICES oluþturur
+//x ve y değerlerine göre INDICES oluşturur
 INDICES* createIndices(int x, int y){
 	INDICES* newIndices = (INDICES*)malloc(sizeof(INDICES));
 	newIndices->x = x;
@@ -326,7 +325,7 @@ INDICES* createIndices(int x, int y){
 	return newIndices;
 }
 
-//Ziyaret ettiðimiz noktalarýn kordinat bilgilerini içeren node oluþturur
+//Ziyaret ettiğimiz noktaların koordinat bilgilerini içeren node oluşturur
 VISITED* createVisitedIndices(INDICES *indices){
 	VISITED* newVisited = (VISITED*)malloc(sizeof(VISITED));
 	newVisited->indices = indices;
@@ -334,20 +333,20 @@ VISITED* createVisitedIndices(INDICES *indices){
 	return newVisited;
 }
 
-//Ýlgili node'u linkli listeye baþtan ekler çünkü silme iþlemi yapacaksak en son eklediðimizi sileceðimiz için en sona kadar sürekli gitmektense baþa eklemek daha mantýklý
+//İlgili node'u linkli listeye baştan ekler çünkü silme işlemi yapacaksak en son eklediğimizi sileceğimiz için en sona kadar sürekli gitmektense başa eklemek daha mantıklı
 void addVisitedNode(VISITED **head, VISITED *newVisited){
 	newVisited->next = *head;
 	*head = newVisited;
 }
 
-//Baþtan silme yapar
+//Baştan silme yapar
 void deleteVisitedNode(VISITED **head){
 	VISITED *tmp = *head;
 	*head = (*head)->next;
 	free(tmp);
 }
 
-//Dynamic olarak oluþturulan matrisi deallocate eder
+//Dynamic olarak oluşturulan matrisi deallocate eder
 void deallocateMaze(char **maze, int mazeHeight, int mazeWidth){
 	int i;
 	for(i = 0; i < mazeHeight; i++){
