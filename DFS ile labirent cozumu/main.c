@@ -13,7 +13,7 @@ yazarak benimle iletişime geçebilirsiniz.
 #include <unistd.h>
 #define MAX 255
 
-/* Kullanılan Matris TEK Boşlukludur
+/*
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |     |     |                             |
 + +-+ + +-+-+ +-+-+-+-+-+-+-+-+-+ +-+-+-+ +
