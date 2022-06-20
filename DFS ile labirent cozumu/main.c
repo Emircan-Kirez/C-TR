@@ -229,7 +229,7 @@ void initializeMaze(LINES *head, char **maze, int mazeHeight, int mazeWidth, int
 		tmp = tmp->next;
 	}
 	
-	//10 adet elma eklemek istedim
+	//10 adet elma ekledim
 	i = 0;
 	while(i < 10){
 		randomX = rand() % mazeHeight;
@@ -244,7 +244,6 @@ void initializeMaze(LINES *head, char **maze, int mazeHeight, int mazeWidth, int
 void findMazeExit(VISITED **visitedHead, int startingX, int startingY, STACK *s, char **maze, int mazeHeight, int mazeWidth){
 	//sol - aşağı- sağ - yukarı şeklinde kontrol eder. Bu şekilde stackte yukarı - sağ - aşağı - sol yapısı kurulur
 	int directions[][4] = {{0, 1, 0, -1}, {-1, 0, 1, 0}};  
-	//int directions[][4] = {{-1, 0, 0, 1}, {0, -1, 1, 0}}; //aşağı - sağ - yukarı - sol pdf'teki örnek için
 	int i, x, y, counter, score = 0;
 	INDICES *tmp = createIndices(startingX, startingY);
 	INDICES *current;
