@@ -1,3 +1,12 @@
+/* Emircan KİREZ - Ch3rry */
+/* Last Update: 04/07/2022 */
+/*
+----------------------- BİLGİLENDİRME --------------------------
+• Projeye geçmeden önce README.md dosyasını okumanız tavsiye edilmektedir.
+• Projeyle alakalı herhangi bir soru ve öneri için "emircan200123@hotmail.com" mail adresi üzerinden, konu başlığına "Github | C-TR / XOX Oyunu"
+yazarak benimle iletişime geçebilirsiniz.
+*/
+
 #include <stdio.h>																											                                                        //E.K.
 #include <stdlib.h>
 #include <ctype.h>
@@ -26,7 +35,7 @@ int main(){
 		printf("ILK DURUM: \n");
 		printBoard(board);
 		
-		//ilk 4 hareket kazanan olamayaca�� i�in kontrole gerek yok
+		//ilk 4 hareket sonunda kazanan olamayacağı için kontrole gerek yok
 		for(i = 0; i < 2; i++){
 			userMove(board, userSign, &freeSpaces);
 			printBoard(board);
@@ -94,7 +103,7 @@ void resetBoard(char **board){
 	}
 }
 
-void chooseYourSign(char *userSign, char *computerSign){
+void chooseYourSign(char *userSign, char *computerSign){ //kullanıcının hangi işareti kullanacağının seçimi
 	do{
 		printf("X olmak icin X'e, O' olmak icin O'ya basiniz: ");
 		scanf(" %c", userSign);
@@ -112,34 +121,34 @@ void chooseYourSign(char *userSign, char *computerSign){
 	}
 }
 
-char checkWhetherThereIsAWinner(char **board){
+char checkWhetherThereIsAWinner(char **board){ //kazanan olup olmadığının kontrolü
 	int i;
 	
-	//sat�r kontrol�
+	//satır kontrolü
 	for(i = 0; i < 3; i++){
 		if(board[i][0] == board[i][1] && board[i][0] == board[i][2]){
 			return board[i][0];
 		}
 	}
 	
-	//s�tun kontrol�
+	//sütun kontrolü
 	for(i = 0; i < 3; i++){
 		if(board[0][i] == board[1][i] && board[0][i] == board[2][i]){
 			return board[0][i];
 		}
 	}
 	
-	//sol �stten sa� alta �arpraz kontrol
+	//sol üstten sağ alta çarpraz kontrol
 	if(board[0][0] == board[1][1] && board[0][0] == board[2][2]){
 		return board[0][0];
 	}
 	
-	//sa� �stten sol altta �arpraz kontrol
+	//sağ üstten sol altta çarpraz kontrol
 	if(board[0][2] == board[1][1] && board[0][2] == board[2][0]){
 		return board[0][2];
 	}
 	
-	return ' ';
+	return ' '; //hiç kazanan yoksa
 }
 
 void userMove(char **board, char userSign, int *freeSpaces){
