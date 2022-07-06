@@ -1,5 +1,5 @@
 /* Emircan KİREZ - Ch3rry */
-/* Last Update: 02/06/2022 */
+/* Son Güncelleme: 02/06/2022 */
 /*
 ----------------------- BİLGİLENDİRME --------------------------
 • Projeye geçmeden önce README.md dosyasını okumanız tavsiye edilmektedir.
