@@ -1,13 +1,13 @@
-/* Emircan KÝREZ - Ch3rry */
-/* Son Güncelleme: 06/07/2022 */
+/* Emircan KÄ°REZ - Ch3rry */
+/* Son GÃ¼ncelleme: 06/07/2022 */
 /*
------------------------ BÝLGÝLENDÝRME --------------------------
-• Projeye geçmeden önce README.md dosyasýný okumanýz tavsiye edilmektedir.
-• Projeyle alakalý herhangi bir soru ve öneri için "emircan200123@hotmail.com" mail adresi üzerinden, konu baþlýðýna "Github | C-TR / Ýki Dizi Kullanarak Stack Oluþturma"
-yazarak benimle iletiþime geçebilirsiniz.
+----------------------- BÄ°LGÄ°LENDÄ°RME --------------------------
+â€¢ Projeye geÃ§meden Ã¶nce README.md dosyasÄ±nÄ± okumanÄ±z tavsiye edilmektedir.
+â€¢ Projeyle alakalÄ± herhangi bir soru ve Ã¶neri iÃ§in "emircan200123@hotmail.com" mail adresi Ã¼zerinden, konu baÅŸlÄ±ÄŸÄ±na "Github | C-TR / Ä°ki Dizi Kullanarak Stack OluÅŸturma"
+yazarak benimle iletiÅŸime geÃ§ebilirsiniz.
 */
 #include <stdio.h>                                                                                                                                                                  
-#define MAX 1 //Fonksiyonlarý denemek için MAX 1 olarak ayarlanmýþtýr. Toplam stack boyutumu 2 MAX'týr.
+#define MAX 1 //FonksiyonlarÄ± denemek iÃ§in MAX 1 olarak ayarlanmÄ±ÅŸtÄ±r. Toplam stack boyutumu 2 MAX'tÄ±r.
 
 //Function Prototypes
 int isFull(int );
@@ -15,7 +15,7 @@ void push(int );
 int isEmpty(int );
 void pop();
 
-//Global variables - sürekli parametre olarak atmayalým diye
+//Global variables - sÃ¼rekli parametre olarak atmayalÄ±m diye
 int stackA[MAX], stackB[MAX];
 int aMax = -1;
 int bMax = -1;
@@ -38,7 +38,7 @@ int isFull(int max){
     return 0;
 }
 
-//push ederken önce stackA, sonra stackB kontrol edilmeli
+//push ederken Ã¶nce stackA, sonra stackB kontrol edilmeli
 void push(int value){
     if(isFull(aMax)){
         if(isFull(bMax)){
@@ -60,18 +60,18 @@ int isEmpty(int max){
     return 0;
 }
 
-//pop ederken önce stackB, sonra stackA kontrol edilmeli
+//pop ederken Ã¶nce stackB, sonra stackA kontrol edilmeli
 void pop(){
 	int poppedValue;
     if(isEmpty(bMax)){
         if(isEmpty(aMax)){
             printf("Stack'ten hicbir deger pop edilemedi cunku stack bos !!\n");
         }else{
-        	poppedValue = stackA[--aMax];
+        	poppedValue = stackA[aMax--];
             printf("%d degeri stack'ten pop edildi. Toplam eleman sayisi: %d\n", poppedValue, aMax + bMax + 2);
         }
     }else{
-    	poppedValue = stackB[--bMax];
+    	poppedValue = stackB[bMax--];
         printf("%d degeri stack'ten pop edildi. Toplam eleman sayisi: %d\n", poppedValue, aMax + bMax + 2);
     }
 }
