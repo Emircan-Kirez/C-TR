@@ -1,10 +1,10 @@
-/* Emircan KİREZ - Ch3rry */
-/* Last Update - 20/07/2022 */
+/* Emircan KÄ°REZ - Ch3rry */
+/* Son GÃ¼ncelleme - 20/07/2022 */
 /*
------------------------ BİLGİLENDİRME --------------------------
-• Projeye geçmeden önce README.md dosyasını okumanız tavsiye edilmektedir.
-• Projeyle alakalı herhangi bir soru ve öneri için "emircan200123@hotmail.com" mail adresi üzerinden, konu başlığına "Github | C-TR / Linkli Listeyi Ters Çevir"
-yazarak benimle iletişime geçebilirsiniz.
+----------------------- BÄ°LGÄ°LENDÄ°RME --------------------------
+â€¢ Projeye geÃ§meden Ã¶nce README.md dosyasÄ±nÄ± okumanÄ±z tavsiye edilmektedir.
+â€¢ Projeyle alakalÄ± herhangi bir soru ve Ã¶neri iÃ§in "emircan200123@hotmail.com" mail adresi Ã¼zerinden, konu baÅŸlÄ±ÄŸÄ±na "Github | C-TR / Linkli Listeyi Ters Ã‡evir"
+yazarak benimle iletiÅŸime geÃ§ebilirsiniz.
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -58,9 +58,9 @@ void reverse(NODE **head){
 	NODE *prev = NULL, *current = *head, *next;
 	while(current != NULL){
 		next = current->next; //next'i sakla
-		current->next = prev; //cuurent node bir öncesini göstersin
-		prev = current; //prev'i güncelle
-		current = next; //current'ı güncelle
+		current->next = prev; //cuurent node bir Ã¶ncesini gÃ¶stersin
+		prev = current; //prev'i gÃ¼ncelle
+		current = next; //current'Ä± gÃ¼ncelle
 	}
 	*head = prev;
 }
