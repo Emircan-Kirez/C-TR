@@ -58,7 +58,7 @@ void reverse(NODE **head){
 	NODE *prev = NULL, *current = *head, *next;
 	while(current != NULL){
 		next = current->next; //next'i sakla
-		current->next = prev; //cuurent node bir öncesini göstersin
+		current->next = prev; //current node bir öncesini göstersin
 		prev = current; //prev'i güncelle
 		current = next; //current'ı güncelle
 	}
